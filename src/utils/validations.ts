@@ -1,5 +1,5 @@
 import { z } from "zod";
 
-export const UserZodSchema = z.object({
+export const userZodSchema = z.object({
   username: z.string().trim().min(1),
 });

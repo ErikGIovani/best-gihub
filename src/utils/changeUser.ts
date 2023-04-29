@@ -1,13 +1,13 @@
 import { PrismaClient } from "@prisma/client";
 
-import { INewUser } from "./types";
+import type { NewUser } from "./types";
 
 const prisma = new PrismaClient();
 
-const changeUser = async (UserID: string, NewUser: INewUser) => {
+const changeUser = async (userID: string, newUser: NewUser) => {
   const updatedUser = await prisma.user.update({
-    where: { id: UserID },
-    data: NewUser,
+    where: { id: userID },
+    data: newUser,
   });
 
   if (updatedUser) {

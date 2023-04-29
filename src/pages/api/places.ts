@@ -1,18 +1,25 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+import messages from "@/utils/messages";
+import usersCall from "@/utils/usersCall";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method !== "GET") {
-    return res.status(400).json({ message: "Not found" });
+    return res.status(404).json(messages.notFound);
   }
 
-  const Users = await prisma.user.findMany();
-  const UsersOrdered = Users.sort((a, b) => b.total - a.total);
+  try {
+    const users = await usersCall();
 
-  res.status(200).json(UsersOrdered);
+    if (users.length === 0) {
+      return res.status(400).json(messages.error);
+    }
+
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(400).json(messages.error);
+  }
 }
