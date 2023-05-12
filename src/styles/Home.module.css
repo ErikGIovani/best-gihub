@@ -82,20 +82,31 @@
   border-radius: 2rem;
   width: 40rem;
   font-size: 1.5rem;
+  outline: none;
+}
+
+.container__button:hover {
+  background: white;
+  color: black;
+  transition: 1s;
 }
 
 .container__button {
   position: absolute;
-  right: 0;
-  border: none;
+  right: -2px;
+  top: 0;
+  border: 1px solid black;
   background: black;
   color: white;
-  font-size: 1.9rem;
-  padding: 1rem;
+  font-size: 2rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 9999px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 1s;
+  text-align: center;
 }
 
 .container__wins {
@@ -106,4 +117,12 @@
 .center__light {
   position: absolute;
   top: -60px;
+}
+
+.error__message {
+  position: absolute;
+  left: 11px;
+  bottom: -30px;
+  color: white;
+  font-weight: bolder;
 }

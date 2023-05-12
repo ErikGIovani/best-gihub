@@ -22,7 +22,7 @@
 }
 
 .place__button {
-  border: none;
+  border: 1px solid black;
   background: black;
   color: white;
   font-size: 1.5rem;
@@ -52,10 +52,19 @@
   text-align: center;
 }
 
+.place__user__container a:hover {
+  border-color: white;
+  color: white;
+  background: black !important;
+  transition: 1s;
+}
+
 .place__user__container a {
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   text-decoration: none;
   color: black;
   margin-top: 1rem;
+  border: 1px solid black;
+  transition: 1s;
 }

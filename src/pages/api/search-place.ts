@@ -17,7 +17,7 @@ export default async function handler(
   const result = userZodSchema.safeParse(req.body);
 
   if (!result.success) {
-    return res.status(400).json({ message: "The username is not valid" });
+    return res.status(400).json(messages.error);
   }
 
   const { username } = result.data;
